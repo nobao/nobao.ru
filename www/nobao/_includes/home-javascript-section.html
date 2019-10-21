@@ -1,0 +1,33 @@
+<section class="type-one">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-sm-12">
+                <h2 class="type-one__header"><a href="blog/javascript/">JavaScript</a></h2>
+            </div>
+
+            <div class="col-md-8">
+
+                <div class="row">
+
+{% for post in site.categories.javascript limit: 4 offset: 0 %}
+{% include /home-javascript-section-item.html %}
+{% endfor %}                   
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="aside-box">
+
+{% include /ad-vertical.html %}
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,22 @@
+<header class="header">
+    <a href="{{ site.baseurl }}" class="header__logo header__logo__litera">nObao</a>
+
+    <div class="header__search">
+        <div class="header__search__button" title="Поиск по сайту"><div class="fa fa-search"></div></div>
+        <div class="header__search__field">
+            <form action="/search.html" id="cse-search-box">
+                <input type="hidden" name="cx" value="partner-pub-xxx:xxx" />
+                <input type="hidden" name="cof" value="FORID:10" />
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="text" name="q" placeholder="Поиск по сайту..." />
+            </form>
+        </div>
+    </div>
+
+    <div class="header__mobile-menu__button"><i class="fa fa-bars"></i> Меню</div>
+    
+    <nav class="header__menu header__menu__top">
+{% include /main-menu.html %}
+    </nav>
+
+</header>

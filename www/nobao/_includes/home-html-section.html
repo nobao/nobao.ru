@@ -1,0 +1,35 @@
+<section class="type-one">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-sm-12">
+                <h2 class="type-one__header"><a href="blog/html/">HTML</a></h2>
+            </div>
+
+            <div class="col-md-8">
+
+                <div class="row">
+
+{% for post in site.categories.html limit: 4 offset: 0 %}
+{% include /home-html-section-item.html %}
+{% endfor %}
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="aside-box">
+{% include /ad-cube.html %}                    
+                </div>
+
+                <div class="aside-box">
+{% include /vk-witget.html %}                    
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>

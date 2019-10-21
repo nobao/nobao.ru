@@ -1,0 +1,95 @@
+<div class="latest-box">
+    <div class="latest-box__header">Последние статьи:</div>
+
+    <div class="latest-box__list">
+
+        <div class="latest-box__item">
+            <a href="blog/learning/" class="latest-box__item__category-name">Обучение</a>
+            <div class="latest-box__item__body">
+
+                {% for post in site.categories.learning limit: 1 offset: 0 %}
+                <a href="{{ post.url }}" class="latest-box__item__header">{{ post.title }}</a>
+                <div class="latest-box__item__footer">
+                    <div class="item-comments" title="Количество комментариев">
+                        <i class="fa fa-comment"></i><a href="{{ post.url }}#disqus_thread" class="item-comments__count"></a>
+                        <span class="date">{{ post.date | date: '%d' }}/{{ post.date | date: '%m' }}/{{ post.date | date: '%Y' }}</span>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <div class="latest-box__item">
+            <a href="blog/html/" class="latest-box__item__category-name">HTML</a>
+            <div class="latest-box__item__body">
+
+                {% for post in site.categories.html limit: 1 offset: 0 %}
+                <a href="{{ post.url }}" class="latest-box__item__header">{{ post.title }}</a>
+                <div class="latest-box__item__footer">
+                    <div class="item-comments" title="Количество комментариев">
+                        <i class="fa fa-comment"></i><a href="{{ post.url }}#disqus_thread" class="item-comments__count"></a>
+                        <span class="date">{{ post.date | date: '%d' }}/{{ post.date | date: '%m' }}/{{ post.date | date: '%Y' }}</span>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <div class="latest-box__item">
+            <a href="blog/css/" class="latest-box__item__category-name">CSS</a>
+            <div class="latest-box__item__body">
+
+                {% for post in site.categories.css limit: 1 offset: 0 %}
+                <a href="{{ post.url }}" class="latest-box__item__header">{{ post.title }}</a>
+                <div class="latest-box__item__footer">
+                    <div class="item-comments" title="Количество комментариев">
+                        <i class="fa fa-comment"></i><a href="{{ post.url }}#disqus_thread" class="item-comments__count"></a>
+                        <span class="date">{{ post.date | date: '%d' }}/{{ post.date | date: '%m' }}/{{ post.date | date: '%Y' }}</span>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <div class="latest-box__item">
+            <a href="blog/javascript/" class="latest-box__item__category-name">JavaScript</a>
+            <div class="latest-box__item__body">
+
+                {% for post in site.categories.javascript limit: 1 offset: 0 %}
+                <a href="{{ post.url }}" class="latest-box__item__header">{{ post.title }}</a>
+                <div class="latest-box__item__footer">
+                    <div class="item-comments" title="Количество комментариев">
+                        <i class="fa fa-comment"></i><a href="{{ post.url }}#disqus_thread" class="item-comments__count"></a>
+                        <span class="date">{{ post.date | date: '%d' }}/{{ post.date | date: '%m' }}/{{ post.date | date: '%Y' }}</span>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <div class="latest-box__item">
+            <a href="blog/various/" class="latest-box__item__category-name">Разное</a>
+            <div class="latest-box__item__body">
+
+                {% for post in site.categories.various limit: 1 offset: 0 %}
+                <a href="{{ post.url }}" class="latest-box__item__header">{{ post.title }}</a>
+                <div class="latest-box__item__footer">
+                    <div class="item-comments" title="Количество комментариев">
+                        <i class="fa fa-comment"></i><a href="{{ post.url }}#disqus_thread" class="item-comments__count"></a>
+                        <span class="date">{{ post.date | date: '%d' }}/{{ post.date | date: '%m' }}/{{ post.date | date: '%Y' }}</span>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+        
+
+    </div>
+
+</div>

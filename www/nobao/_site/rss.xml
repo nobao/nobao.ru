@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>NObao</title>
+		<description>Процесс моего обучения программированию на JavaScript, верстке, а также новости по данной тематике</description>
+		<link>https://nobao.ru</link>
+		<atom:link href="https://nobao.ru/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Список полезной литературы по JavaScript</title>
+				<description><![CDATA[
+					<a href="https://nobao.ru/blog/javascript/2019-10-16-spisok-poleznoj-literatury-po-javascript.html"><img width="100%" src="https://nobao.ruimages/javascript/2019/2019-10-16-spisok-poleznoj-literatury-po-javascript/1.jpg"></a>
+					Лучшие книги, помогающие в изучении JavaScript, по версии большинства тематических сайтов
+					]]></description>
+				<pubDate>Wed, 16 Oct 2019 00:00:00 +0300</pubDate>
+				<link>https://nobao.ru/blog/javascript/2019-10-16-spisok-poleznoj-literatury-po-javascript.html</link>
+				<guid isPermaLink="true">https://nobao.ru/blog/javascript/2019-10-16-spisok-poleznoj-literatury-po-javascript.html</guid>
+			</item>
+		
+			<item>
+				<title>Список полезной литературы по CSS</title>
+				<description><![CDATA[
+					<a href="https://nobao.ru/blog/css/2019-10-14-spisok-poleznoj-literatury-po-css.html"><img width="100%" src="https://nobao.ruimages/css/2019/2019-10-14-spisok-poleznoj-literatury-po-css/1.jpg"></a>
+					Лучшие книги, помогающие в изучении CSS, по версии большинства тематических сайтов
+					]]></description>
+				<pubDate>Mon, 14 Oct 2019 00:00:00 +0300</pubDate>
+				<link>https://nobao.ru/blog/css/2019-10-14-spisok-poleznoj-literatury-po-css.html</link>
+				<guid isPermaLink="true">https://nobao.ru/blog/css/2019-10-14-spisok-poleznoj-literatury-po-css.html</guid>
+			</item>
+		
+			<item>
+				<title>Список полезной литературы по HTML</title>
+				<description><![CDATA[
+					<a href="https://nobao.ru/blog/html/2019-10-14-spisok-poleznoj-literatury-po-html.html"><img width="100%" src="https://nobao.ruimages/html/2019/2019-10-14-spisok-poleznoj-literatury-po-html/1.jpg"></a>
+					Лучшие книги, помогающие в изучении HTML5, по версии большинства тематических сайтов
+					]]></description>
+				<pubDate>Mon, 14 Oct 2019 00:00:00 +0300</pubDate>
+				<link>https://nobao.ru/blog/html/2019-10-14-spisok-poleznoj-literatury-po-html.html</link>
+				<guid isPermaLink="true">https://nobao.ru/blog/html/2019-10-14-spisok-poleznoj-literatury-po-html.html</guid>
+			</item>
+		
+			<item>
+				<title>Отчет о 9-тимесячном затишьи</title>
+				<description><![CDATA[
+					<a href="https://nobao.ru/blog/learning/2019-10-06-otchet-o-9-timesyachnom-zatishi.html"><img width="100%" src="https://nobao.ruimages/learning/2019/2019-10-06-otchet-o-9-timesyachnom-zatishi/1.jpg"></a>
+					Рассказ о том, чем я занимался 9 месяцев: книги о JavaScript, видеокурсы по верстке
+					]]></description>
+				<pubDate>Sun, 06 Oct 2019 00:00:00 +0300</pubDate>
+				<link>https://nobao.ru/blog/learning/2019-10-06-otchet-o-9-timesyachnom-zatishi.html</link>
+				<guid isPermaLink="true">https://nobao.ru/blog/learning/2019-10-06-otchet-o-9-timesyachnom-zatishi.html</guid>
+			</item>
+		
+			<item>
+				<title>Мой первый самостоятельный проект: NObao.ru</title>
+				<description><![CDATA[
+					<a href="https://nobao.ru/blog/learning/2019-01-21-moj-pervyj-samostoyatelnyj-proekt-nobao-ru.html"><img width="100%" src="https://nobao.ruimages/learning/2019/2019-01-21-moj-pervyj-samostoyatelnyj-proekt-nobao.ru/1.jpg"></a>
+					Старт создания с нуля своего сайта nobao.ru
+					]]></description>
+				<pubDate>Mon, 21 Jan 2019 00:00:00 +0300</pubDate>
+				<link>https://nobao.ru/blog/learning/2019-01-21-moj-pervyj-samostoyatelnyj-proekt-nobao-ru.html</link>
+				<guid isPermaLink="true">https://nobao.ru/blog/learning/2019-01-21-moj-pervyj-samostoyatelnyj-proekt-nobao-ru.html</guid>
+			</item>
+		
+			<item>
+				<title>Mission «SoloLearn» complete</title>
+				<description><![CDATA[
+					<a href="https://nobao.ru/blog/learning/2019-01-16-mission-sololearn-complete.html"><img width="100%" src="https://nobao.ruimages/learning/2019/2019-01-16-mission-sololearn-complete/1.jpg"></a>
+					Прошел обучение в приложении SoloLearn четырех курсов: HTML, CSS, JavaScript и jQuery
+					]]></description>
+				<pubDate>Wed, 16 Jan 2019 00:00:00 +0300</pubDate>
+				<link>https://nobao.ru/blog/learning/2019-01-16-mission-sololearn-complete.html</link>
+				<guid isPermaLink="true">https://nobao.ru/blog/learning/2019-01-16-mission-sololearn-complete.html</guid>
+			</item>
+		
+			<item>
+				<title>С Новым 2019 годом!</title>
+				<description><![CDATA[
+					<a href="https://nobao.ru/blog/various/2019-01-02-s-novym-2019-godom.html"><img width="100%" src="https://nobao.ruimages/various/2019/2019-01-02-s-novym-2019-godom!/1.jpg"></a>
+					Поздравления с Новым 2019 годом, мои планы в наступившем году
+					]]></description>
+				<pubDate>Wed, 02 Jan 2019 00:00:00 +0300</pubDate>
+				<link>https://nobao.ru/blog/various/2019-01-02-s-novym-2019-godom.html</link>
+				<guid isPermaLink="true">https://nobao.ru/blog/various/2019-01-02-s-novym-2019-godom.html</guid>
+			</item>
+		
+			<item>
+				<title>Как получить базовые знания по HTML и CSS</title>
+				<description><![CDATA[
+					<a href="https://nobao.ru/blog/learning/2018-12-27-kak-poluchit-bazovye-znaniya-po-html-i-css.html"><img width="100%" src="https://nobao.ruimages/learning/2018/2018-12-27-kak-poluchit-bazovye-znaniya-po-html-i-css/1.jpg"></a>
+					Как узнать основы, а также освежить в памяти необходимые для верстки HTML и CSS
+					]]></description>
+				<pubDate>Thu, 27 Dec 2018 00:00:00 +0300</pubDate>
+				<link>https://nobao.ru/blog/learning/2018-12-27-kak-poluchit-bazovye-znaniya-po-html-i-css.html</link>
+				<guid isPermaLink="true">https://nobao.ru/blog/learning/2018-12-27-kak-poluchit-bazovye-znaniya-po-html-i-css.html</guid>
+			</item>
+		
+			<item>
+				<title>Начало изучения JavaScript</title>
+				<description><![CDATA[
+					<a href="https://nobao.ru/blog/learning/2018-12-25-nachalo-izucheniya-javascript.html"><img width="100%" src="https://nobao.ruimages/learning/2018/2018-12-25-nachalo-izucheniya-javascript/1.jpg"></a>
+					Поиск с чего начать обучение JavaScript. Первые шаги.
+					]]></description>
+				<pubDate>Tue, 25 Dec 2018 00:00:00 +0300</pubDate>
+				<link>https://nobao.ru/blog/learning/2018-12-25-nachalo-izucheniya-javascript.html</link>
+				<guid isPermaLink="true">https://nobao.ru/blog/learning/2018-12-25-nachalo-izucheniya-javascript.html</guid>
+			</item>
+		
+			<item>
+				<title>Тест воды на содержание примесей</title>
+				<description><![CDATA[
+					<a href="https://nobao.ru/blog/various/2018-12-23-test-vody-na-soderzhanie-primesej.html"><img width="100%" src="https://nobao.ruimages/various/2018/2018-12-23-test-vody-na-soderzhanie-primesej/1.jpg"></a>
+					Тестирование воды на количество солей жесткости (ppm) в воде из под крана, в бутылочных водах и воде после фильтра Аквафор
+					]]></description>
+				<pubDate>Sun, 23 Dec 2018 00:00:00 +0300</pubDate>
+				<link>https://nobao.ru/blog/various/2018-12-23-test-vody-na-soderzhanie-primesej.html</link>
+				<guid isPermaLink="true">https://nobao.ru/blog/various/2018-12-23-test-vody-na-soderzhanie-primesej.html</guid>
+			</item>
+		
+	</channel>
+</rss>

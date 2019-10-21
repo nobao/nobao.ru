@@ -1,0 +1,35 @@
+<footer class="main-footer">
+    <div class="container">
+
+        <nav class="header__menu main-footer__menu">
+{% include /main-menu.html %}
+        </nav>
+
+        <nav class="soc">
+            <ul>
+{{ site.soc }}
+            </ul>
+        </nav>
+
+    </div>
+</footer>
+
+<footer class="bottom-footer">
+    <div class="container text-center">
+        <div class="bottom-footer__copyright">{{ site.time | date: '%Y' }} © <span class="bottom-footer__copyright__logo header__logo__litera">nObao</span></div>
+        <p>{{ site.copyright }}</p>
+    </div>
+</footer>
+
+
+<script src="js/scripts.min.js"></script>
+
+<script id="dsq-count-scr" src="//nobao-2.disqus.com/count.js" async></script>
+
+<script type="text/javascript" src="https://vk.com/js/api/openapi.js?162"></script>
+<script type="text/javascript">
+    VK.Widgets.Group("vk_groups", {mode: 0, width: 'auto', height: '300', color2: '202225', color3: '202225'}, 187535425);
+</script>
+
+</body>
+</html>

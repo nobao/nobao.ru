@@ -1,0 +1,83 @@
+{% include /head-category.html %}
+
+{% include /header.html %}
+
+	
+
+    <div class="pattern pattern-category__header">
+        <div class="category__header overlay" style="background-image: url({{ page.image }})">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="category__header__block">
+                            <h1>{{ page.title }}</h1>
+                            <p>{{ page.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="category-list__first">
+        <div class="container-fluid">
+
+            <div class="ad ad__top">
+{% include ad-horizontal.html %}
+            </div>
+
+            <section class="type-two type-two__category">
+                <div class="row">
+    
+                    <div class="col-md-7">
+{% for post in paginator.posts limit: 1 offset: 0 %}
+{% include /home-css-section-item-1.html %}
+{% endfor %}
+                    </div>
+    
+                    <div class="col-md-5 type-two__next">                        
+{% for post in paginator.posts limit: 2 offset: 1 %}
+{% include /home-css-section-item-2.html %}
+{% endfor %}
+                    </div>
+    
+                    
+    
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <div class="category-list">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-md-8">
+
+                    <div class="category-list_wrapper">
+
+{% for post in paginator.posts offset: 3 %}
+{% include /category-list-item.html %} 
+{% endfor %}                                           
+
+                    </div>
+
+{% include /pagination-mobile.html %}
+
+                </div>
+                <div class="col-md-4">
+
+{% include /category-aside.html %}
+
+                </div>
+
+
+            </div>
+        </div>
+
+{% include /pagination-desktop.html %}
+
+    </div>
+    
+{% include /footer.html %}

@@ -1,0 +1,29 @@
+<section class="type-two">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-sm-12">
+                <h2 class="type-two__header"><a href="blog/various/">Разное</a></h2>
+            </div>
+
+            <div class="col-md-7">
+
+{% for post in site.categories.various limit: 1 offset: 0 %}
+{% include /home-various-section-item-1.html %}
+{% endfor %}
+
+            </div>
+
+            <div class="col-md-5 type-two__next">
+
+{% for post in site.categories.various limit: 2 offset: 1 %}
+{% include /home-various-section-item-2.html %}
+{% endfor %} 
+
+            </div>
+
+            
+
+        </div>
+    </div>
+</section>
