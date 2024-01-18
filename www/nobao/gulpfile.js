@@ -1,50 +1,39 @@
-var syntax         = 'sass', // Syntax: sass or scss;
-		gulpVersion    = '4'; // Gulp version: 3 or 4
-		gmWatch        = false; // ON/OFF GraphicsMagick watching "img/_src" folder (true/false). Linux install gm: sudo apt update; sudo apt install graphicsmagick
+let syntax     = 'sass', // Syntax - .sass or .scss
+		fileswatch = 'html,htm,txt,json,md,woff2', // List of files extensions for watching & hard reload
+		gmWatch    = false // true/false GraphicsMagick watching "img/_src" folder.
+		                   // Install gm Linux/WSL: sudo apt update; sudo apt install graphicsmagick
+		                   // Install gm Git Bash: https://sourceforge.net/projects/graphicsmagick/files/
 
-var gulp          = require('gulp'),
-		gutil         = require('gulp-util' ),
-		sass          = require('gulp-sass'),
-		browserSync   = require('browser-sync'),
-		concat        = require('gulp-concat'),
-		uglify        = require('gulp-uglify'),
-		cleancss      = require('gulp-clean-css'),
-		rename        = require('gulp-rename'),
-		autoprefixer  = require('gulp-autoprefixer'),
-		notify        = require('gulp-notify'),
-		rsync         = require('gulp-rsync'),
-		imageResize   = require('gulp-image-resize'),
-		imagemin      = require('gulp-imagemin'),
-		del           = require('del');
+import pkg from 'gulp'
+const { src, dest, parallel, series, watch } = pkg
 
-// Local Server
-gulp.task('browser-sync', function() {
-	browserSync({
+import browserSync   from 'browser-sync'
+import gulpSass      from 'gulp-sass'
+import * as dartSass from 'sass'
+const  sass          = gulpSass(dartSass)
+import postCss       from 'gulp-postcss'
+import cssnano       from 'cssnano'
+import concat        from 'gulp-concat'
+import uglify        from 'gulp-uglify'
+import autoprefixer  from 'autoprefixer'
+import rsyncModule   from 'gulp-rsync'
+import imageResize   from 'gulp-image-resize'
+import {deleteAsync} from 'del'
+
+function browsersync() {
+	browserSync.init({
 		server: {
 			baseDir: '_site'
 		},
+		ghostMode: { clicks: false },
 		notify: false,
-		open: false,
-		// online: false, // Work Offline Without Internet Connection
-		// tunnel: true, tunnel: "projectname", // Demonstration page: http://projectname.localtunnel.me
+		online: true,
+		// tunnel: 'yousutename', // Attempt to use the URL https://yousutename.loca.lt
 	})
-});
+}
 
-// Sass|Scss Styles
-gulp.task('styles', function() {
-	return gulp.src(syntax+'/**/*.'+syntax+'')
-	.pipe(sass({ outputStyle: 'expanded' }).on("error", notify.onError()))
-	.pipe(rename({ suffix: '.min', prefix : '' }))
-	.pipe(autoprefixer(['last 15 versions']))
-	.pipe(cleancss( {level: { 1: { specialComments: 0 } } })) // Opt., comment out when debugging
-	.pipe(gulp.dest('css'))
-	.pipe(gulp.dest('_site/css'))
-	.pipe(browserSync.stream())
-});
-
-// JS
-gulp.task('scripts', function() {
-	return gulp.src([
+function scripts() {
+	return src([
 		'libs/jquery/dist/jquery.min.js',
 		'libs/likely/likely.js',
 		'libs/prognroll/prognroll.js',
@@ -53,84 +42,64 @@ gulp.task('scripts', function() {
 		])
 	.pipe(concat('scripts.min.js'))
 	// .pipe(uglify()) // Mifify js (opt.)
-	.pipe(gulp.dest('js'))
-	.pipe(gulp.dest('_site/js'))
-	.pipe(browserSync.reload({ stream: true }))
-});
+	.pipe(dest('js'))
+	.pipe(dest('_site/js'))
+	.pipe(browserSync.stream())
+}
 
-// HTML Live Reload
-gulp.task('code', function() {
-	return gulp.src('_site/*.html')
-	.pipe(browserSync.reload({ stream: true }))
-});
+function styles() {
+	return src([`${syntax}/**/*.${syntax}`])
+		.pipe(sass({ 'include css': true }))
+		.pipe(postCss([
+			autoprefixer({ grid: 'autoplace' }),
+			cssnano({ preset: ['default', { discardComments: { removeAll: true } }] })
+		]))
+		.pipe(concat('main.min.css'))
+		.pipe(dest('css'))
+		.pipe(dest('_site/css'))
+		.pipe(browserSync.stream())
+}
 
-// Deploy
-gulp.task('rsync', function() {
-	return gulp.src('_site/**')
-	.pipe(rsync({
-		root: '_site/',
-		hostname: 'a0134353@nobao.ru',
-		destination: 'domains/nobao.ru/public_html/',
-		include: ['*.htaccess'], // Includes files to deploy
-		exclude: ['**/Thumbs.db', '**/*.DS_Store'], // Excludes files from deploy
-		recursive: true,
-		archive: true,
-		silent: false,
-		compress: true
-	}))
-});
-
-// Images @x1 & @x2 + Compression | Required graphicsmagick (sudo apt update; sudo apt install graphicsmagick)
-gulp.task('img1x', function() {
-	return gulp.src('app/img/_src/**/*.*')
+function img1x() {
+	return src('app/img/_src/**/*.*')
 	.pipe(imageResize({ width: '50%' }))
-	.pipe(imagemin())
-	.pipe(gulp.dest('app/img/@1x/'))
-});
-gulp.task('img2x', function() {
-	return gulp.src('app/img/_src/**/*.*')
+	.pipe(dest('app/img/@1x/'))
+}
+function img2x() {
+	return src('app/img/_src/**/*.*')
 	.pipe(imageResize({ width: '100%' }))
-	.pipe(imagemin())
-	.pipe(gulp.dest('app/img/@2x/'))
-});
+	.pipe(dest('app/img/@2x/'))
+}
+async function cleanimg() {
+	await deleteAsync('app/img/@*', { force: true })
+}
 
-// Clean @*x IMG's
-gulp.task('cleanimg', function() {
-	return del(['app/img/@*'], { force:true })
-});
+function rsync() {
+	return src('_site/**') // Без звёздочек!
+		.pipe(rsyncModule({
+			root: '_site/',
+			hostname: 'a0134353@nobao.ru',
+		    destination: 'domains/nobao.ru/public_html/',
+			clean: true, // Mirror copy with file deletion
+			include: ['*.htaccess'], // Includes files to deploy
+			exclude: ['**/Thumbs.db', '**/*.DS_Store'], // Excludes files from deploy
+			recursive: true,
+			archive: true,
+			silent: false,
+			compress: true
+		}))
+}
 
-// If Gulp Version 3
-if (gulpVersion == 3) {
+function startwatch() {
+	watch([`${syntax}/**/*.${syntax}`], { usePolling: true }, styles)
+	watch(['libs/**/*.js', 'js/common.js'], { usePolling: true }, scripts)
+	watch([`_site/**/*.{${fileswatch}}`], { usePolling: true }).on('change', browserSync.reload)
+	gmWatch && watch(['app/img/_src/**/*'], { usePolling: true }, img) // GraphicsMagick watching image sources if allowed
+}
 
-	// Img Processing Task for Gulp 3
-	gulp.task('img', ['img1x', 'img2x']);
-	
-	var taskArr = ['styles', 'scripts', 'browser-sync'];
-	gmWatch && taskArr.unshift('img');
+export { scripts, styles, rsync, cleanimg }
+export let img = parallel(img1x, img2x)
+export let assets = series(img, scripts, styles)
 
-	gulp.task('watch', taskArr, function() {
-		gulp.watch('app/'+syntax+'/**/*.'+syntax+'', ['styles']);
-		gulp.watch(['libs/**/*.js', 'app/js/common.js'], ['scripts']);
-		gulp.watch('app/*.html', ['code']);
-		gmWatch && gulp.watch('app/img/_src/**/*', ['img']);
-	});
-	gulp.task('default', ['watch']);
-
-};
-
-// If Gulp Version 4
-if (gulpVersion == 4) {
-
-	// Img Processing Task for Gulp 4
-	gulp.task('img', gulp.parallel('img1x', 'img2x'));
-
-	gulp.task('watch', function() {
-		gulp.watch(syntax+'/**/*.'+syntax+'', gulp.parallel('styles'));
-		gulp.watch(['libs/**/*.js', 'js/common.js'], gulp.parallel('scripts'));
-		gulp.watch('_site/*.html', gulp.parallel('code'));
-		gmWatch && gulp.watch('img/_src/**/*', gulp.parallel('img')); // GraphicsMagick watching image sources if allowed.
-	});
-	gmWatch ? gulp.task('default', gulp.parallel('img', 'styles', 'scripts', 'browser-sync', 'watch')) 
-					: gulp.task('default', gulp.parallel('styles', 'scripts', 'browser-sync', 'watch'));
-
-};
+export default gmWatch ? series(img, scripts, styles, parallel(browsersync, startwatch))
+                       : series(scripts, styles, parallel(browsersync, startwatch))
